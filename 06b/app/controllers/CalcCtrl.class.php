@@ -1,6 +1,8 @@
 <?php
-require_once 'CalcForm.class.php';
-require_once 'CalcResult.class.php';
+namespace app\controllers;
+
+use app\forms\CalcForm;
+use app\transfer\CalcResult;
 
 class CalcCtrl {
 	private $form;
@@ -69,13 +71,13 @@ class CalcCtrl {
 	}
 	
 	public function generateView(){
-		getSmarty()->assign('page_title','Przykład 06a');
-		getSmarty()->assign('page_description','Aplikacja z jednym "punktem wejścia". Zmiana w postaci nowej struktury foderów, skryptu inicjalizacji oraz pomocniczych funkcji.');
+		getSmarty()->assign('page_title','Przykład 06b');
+		getSmarty()->assign('page_description','Kolejne rozszerzenia dla aplikacja z jednym "punktem wejścia". Do nowej struktury dołożono automatyczne ładowanie klas wykorzystując w strukturze przestrzenie nazw.');
 		getSmarty()->assign('page_header','Kontroler główny');
-		
+					
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->assign('res',$this->result);
 		
-		getSmarty()->display('CalcView.html');
+		getSmarty()->display('CalcView.tpl');
 	}
 }
